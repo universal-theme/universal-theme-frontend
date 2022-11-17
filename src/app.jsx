@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Login } from './login';
-import { MainApp } from './main-app';
+import { MainApp, Profile } from './main-app';
 import { SignUp } from './sign-up';
 
 function App() {
@@ -18,7 +18,12 @@ function App() {
     {
       path: "/",
       element: <MainApp />,
-      children: [],
+      children: [
+        {
+          path: "profile",
+          element: <Profile />,
+        },
+      ],
     },
   ]);
 

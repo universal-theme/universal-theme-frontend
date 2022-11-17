@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import styles from './main-app.module.css';
 
 export const MainApp = () => {
@@ -10,7 +11,7 @@ export const MainApp = () => {
             </nav>
         </header>
         <main className={styles.contentView}>
-            <div>main content</div>
+            <Outlet />
         </main>
     </div>;
 }
