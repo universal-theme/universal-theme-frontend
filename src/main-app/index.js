@@ -1,2 +1,2 @@
 export { MainApp } from "./main-app";
-export { Profile } from "./profile"
+export { Home } from "./home";

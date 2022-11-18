@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Login } from './login';
-import { MainApp, Profile } from './main-app';
+import { MainApp } from './main-app';
+import { Home } from './main-app/home';
 import { SignUp } from './sign-up';
 
 function App() {
@@ -20,8 +21,8 @@ function App() {
       element: <MainApp />,
       children: [
         {
-          path: "profile",
-          element: <Profile />,
+          path: "home",
+          element: <Home />,
         },
       ],
     },
