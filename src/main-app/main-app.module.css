@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-items: start;
   height: 100vh;
+  overflow-y: scroll;
 }
 
 .appHeader {
@@ -15,4 +16,10 @@
 
 .contentView {
   flex-grow: 1;
+}
+
+@media (min-width: 800px) {
+  .contentView {
+    padding: 1rem;
+  }
 }

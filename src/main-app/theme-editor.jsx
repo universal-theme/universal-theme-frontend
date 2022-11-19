@@ -1,31 +1,49 @@
 import { Input, FormControl, FormLabel, Paper, TextField, InputAdornment, Button } from "@mui/material";
+import styles from "./theme-editor.module.css";
 
 export const ThemeEditor = () => {
-    return <Paper sx={{display: "flex", "flex-direction": "column"}}>
-        <TextField required label="Name" />
-        
-        <FormControl fullwidth>
-            <FormLabel>Primary color</FormLabel>
-            <Input type="color" />
-        </FormControl>
+    return <Paper sx={{display: "flex", "flex-direction": "column", padding: "1rem"}}>
+        <FormSection header="Theme data">
+            <TextField required label="Name" />
+        </FormSection>
 
-        <FormControl fullwidth>
-            <FormLabel>Secondary color</FormLabel>
-            <Input type="color" />
-        </FormControl>
+        <FormSection header="Colors">
+            <FormControl fullwidth>
+                <FormLabel>Primary color</FormLabel>
+                <Input type="color" />
+            </FormControl>
 
-        <FormControl fullwidth>
-            <FormLabel>Error color</FormLabel>
-            <Input type="color" defaultValue="#ff0000" />
-        </FormControl>
+            <FormControl fullwidth>
+                <FormLabel>Secondary color</FormLabel>
+                <Input type="color" />
+            </FormControl>
 
-        <FormControl fullwidth>
-            <FormLabel>Warning color</FormLabel>
-            <Input type="color" defaultValue="#ff8800" />
-        </FormControl>
+            <FormControl fullwidth>
+                <FormLabel>Error color</FormLabel>
+                <Input type="color" defaultValue="#ff0000" />
+            </FormControl>
 
-        <TextField required label="Font size" InputProps={{ endAdornment: <InputAdornment position="end">px</InputAdornment>}} defaultValue="12" />
+            <FormControl fullwidth>
+                <FormLabel>Warning color</FormLabel>
+                <Input type="color" defaultValue="#ff8800" />
+            </FormControl>
+        </FormSection>
 
-        <Button>Save</Button>
+        <FormSection header="Font">
+            <TextField required label="Font size" InputProps={{ endAdornment: <InputAdornment position="end">px</InputAdornment>}} defaultValue="12" />
+        </FormSection>
+
+
+        <div className={styles.formButtons}>
+            <Button color="warning">Cancel</Button>
+            <Button>Save</Button>
+        </div>
     </Paper>;
 };
+
+const FormSection = ({ header, children }) => {
+    return <div>
+        <h2>{header}</h2>
+        {children}
+    </div>
+}
