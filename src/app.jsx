@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Login } from './login';
-import { MainApp } from './main-app';
+import { Browse, MainApp, ThemeEditor } from './main-app';
 import { Home } from './main-app/home';
 import { SignUp } from './sign-up';
 
@@ -23,6 +23,14 @@ function App() {
         {
           path: "home",
           element: <Home />,
+        },
+        {
+          path: "browse",
+          element: <Browse />,
+        },
+        {
+          path: "edit",
+          element: <ThemeEditor />,
         },
       ],
     },

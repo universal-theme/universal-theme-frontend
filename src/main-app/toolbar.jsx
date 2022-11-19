@@ -6,7 +6,16 @@ export const Toolbar = ({ window }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const drawerWidth = 240;
-    const navItems = ['Home', 'About', 'Contact'];
+    const navLinks = [
+        {
+            name: "Home",
+            location: "",
+        },
+        {
+            name: "Browse",
+            location: "",
+        },
+    ];
     const appName = "Universal Theme";
 
     const toggleDrawer = () => {
@@ -16,7 +25,7 @@ export const Toolbar = ({ window }) => {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return <Box sx={{ display: 'flex' }}>
-        <AppBar component="nav">
+        <AppBar component="nav" position="static">
             <MaterialToolbar>
                 <IconButton
                     color="inherit"
@@ -35,9 +44,9 @@ export const Toolbar = ({ window }) => {
                     {appName}
                 </Typography>
                 <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                    {navItems.map((item) => (
-                        <Button key={item} sx={{ color: '#fff' }}>
-                            {item}
+                    {navLinks.map((item) => (
+                        <Button key={item.name} sx={{ color: '#fff' }}>
+                            {item.name}
                         </Button>
                     ))}
                 </Box>
@@ -63,10 +72,10 @@ export const Toolbar = ({ window }) => {
                     </Typography>
                     <Divider />
                     <List>
-                        {navItems.map((item) => (
-                            <ListItem key={item} disablePadding>
+                        {navLinks.map((item) => (
+                            <ListItem key={item.name} disablePadding>
                                 <ListItemButton sx={{ textAlign: 'center' }}>
-                                    <ListItemText primary={item} />
+                                    <ListItemText primary={item.name} />
                                 </ListItemButton>
                             </ListItem>
                         ))}
