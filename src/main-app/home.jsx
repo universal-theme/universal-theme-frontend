@@ -1,3 +1,6 @@
 export const Home = () => {
-    return <div>profile page</div>;
+    const activeTheme = "Default Theme";
+    return <div>
+        <span>{activeTheme}</span>
+    </div>;
 };
