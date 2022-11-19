@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import { Toolbar as MaterialToolbar, Box, IconButton, Typography, AppBar, Button, Divider, List, ListItem, ListItemButton, ListItemText, Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -9,11 +10,11 @@ export const Toolbar = ({ window }) => {
     const navLinks = [
         {
             name: "Home",
-            location: "",
+            location: "/home",
         },
         {
             name: "Browse",
-            location: "",
+            location: "/browse",
         },
     ];
     const appName = "Universal Theme";
@@ -45,9 +46,11 @@ export const Toolbar = ({ window }) => {
                 </Typography>
                 <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                     {navLinks.map((item) => (
-                        <Button key={item.name} sx={{ color: '#fff' }}>
-                            {item.name}
-                        </Button>
+                        <Link to={item.location}>
+                            <Button key={item.name} sx={{ color: '#fff' }}>
+                                {item.name}
+                            </Button>
+                        </Link>
                     ))}
                 </Box>
             </MaterialToolbar>
@@ -73,11 +76,13 @@ export const Toolbar = ({ window }) => {
                     <Divider />
                     <List>
                         {navLinks.map((item) => (
-                            <ListItem key={item.name} disablePadding>
-                                <ListItemButton sx={{ textAlign: 'center' }}>
-                                    <ListItemText primary={item.name} />
-                                </ListItemButton>
-                            </ListItem>
+                            <Link to={item.location}>
+                                <ListItem key={item.name} disablePadding>
+                                    <ListItemButton sx={{ textAlign: 'center' }}>
+                                        <ListItemText primary={item.name} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </Link>
                         ))}
                     </List>
                 </Box>
