@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import { Login } from './login';
 import { Browse, MainApp, ThemeEditor } from './main-app';
 import { Home } from './main-app/home';
@@ -29,11 +29,15 @@ function App() {
           element: <Browse />,
         },
         {
-          path: "edit",
+          path: "edit/:id",
           element: <ThemeEditor />,
         },
       ],
     },
+    {
+      index: true,
+      element: <Navigate to="/home" replace />
+    }
   ]);
 
   return (
