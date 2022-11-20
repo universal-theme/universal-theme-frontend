@@ -1,9 +1,9 @@
-import { Card, TextField, FormControl, Button } from "@mui/material"
+import { Card, TextField, FormControl, Button, Typography } from "@mui/material"
 import { Link } from "react-router-dom";
 
 export const SignUp = () => {
     return <Card variant="outlined">
-        <h1>Login</h1>
+        <Typography variant="h1">Sign up</Typography>
         <FormControl fullWidth>
             <TextField id="standard-basic" label="username" variant="standard" />
         </FormControl>
