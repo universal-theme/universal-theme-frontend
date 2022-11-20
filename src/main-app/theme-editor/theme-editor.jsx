@@ -1,4 +1,4 @@
-import { Form, useLoaderData } from "react-router-dom"
+import { Form, useLoaderData, Link } from "react-router-dom"
 import { Paper, TextField, InputAdornment, Button } from "@mui/material";
 import styles from "./theme-editor.module.css";
 import { ColorInput } from "../../common";
@@ -10,10 +10,11 @@ export const ThemeEditor = () => {
         errorColor,
         warningColor,
     } = useLoaderData();
+
     return <Paper sx={{display: "flex", "flex-direction": "column", padding: "1rem"}}>
         <Form>
             <FormSection header="Theme data">
-                <TextField required label="Name" />
+                <TextField required name="themeEditor" label="Name" />
             </FormSection>
 
             <FormSection header="Colors">
@@ -27,12 +28,14 @@ export const ThemeEditor = () => {
             </FormSection>
 
             <FormSection header="Font">
-                <TextField required label="Font" defaultValue="Calibri" />
-                <TextField required label="Font size" InputProps={{ endAdornment: <InputAdornment position="end">px</InputAdornment>}} defaultValue="12" />
+                <TextField required name="font" label="Font" defaultValue="Calibri" />
+                <TextField required name="fontSize" label="Font size" InputProps={{ endAdornment: <InputAdornment position="end">px</InputAdornment>}} defaultValue="12" />
             </FormSection>
 
             <div className={styles.formButtons}>
-                <Button color="warning">Cancel</Button>
+                <Link to="/home">
+                    <Button onClick={() => {}} color="warning">Cancel</Button>
+                </Link>
                 <Button type="submit">Save</Button>
             </div>
         </Form>
