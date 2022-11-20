@@ -7,7 +7,7 @@ export const Login = () => {
             <TextField id="standard-basic" label="username" variant="standard" />
         </FormControl>
         <FormControl fullWidth>
-            <TextField id="standard-basic" label="password" variant="standard" />
+            <TextField id="standard-basic" type="password" label="password" variant="standard" />
         </FormControl>
         <button>Create account</button>
         <Button>Login</Button>
