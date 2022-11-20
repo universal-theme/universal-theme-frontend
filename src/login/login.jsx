@@ -1,4 +1,5 @@
 import { Card, TextField, FormControl, Button } from "@mui/material"
+import { Link } from "react-router-dom";
 
 export const Login = () => {
     return <Card variant="outlined">
@@ -9,7 +10,7 @@ export const Login = () => {
         <FormControl fullWidth>
             <TextField id="standard-basic" type="password" label="password" variant="standard" />
         </FormControl>
-        <button>Create account</button>
+        <Link to="/sign-up">Create account</Link>
         <Button>Login</Button>
     </Card>;
 };
