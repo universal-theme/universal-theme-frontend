@@ -1,9 +1,15 @@
-import { Form } from "react-router-dom"
+import { Form, useLoaderData } from "react-router-dom"
 import { Paper, TextField, InputAdornment, Button } from "@mui/material";
 import styles from "./theme-editor.module.css";
 import { ColorInput } from "../../common";
 
 export const ThemeEditor = () => {
+    const {
+        primaryColor,
+        secondaryColor,
+        errorColor,
+        warningColor,
+    } = useLoaderData();
     return <Paper sx={{display: "flex", "flex-direction": "column", padding: "1rem"}}>
         <Form>
             <FormSection header="Theme data">
@@ -11,13 +17,13 @@ export const ThemeEditor = () => {
             </FormSection>
 
             <FormSection header="Colors">
-                <ColorInput label="Primary color" />
+                <ColorInput label="Primary color" name="primaryColor" defaultValue={primaryColor} />
 
-                <ColorInput label="Secondary color" />
+                <ColorInput label="Secondary color" name="secondaryColor" defaultValue={secondaryColor} />
 
-                <ColorInput label="Error color" defaultValue="#ff0000" />
+                <ColorInput label="Error color" name="errorColor" defaultValue={errorColor} />
 
-                <ColorInput label="Warning color" defaultValue="#ff8800" />
+                <ColorInput label="Warning color" name="warningColor" defaultValue={warningColor} />
             </FormSection>
 
             <FormSection header="Font">

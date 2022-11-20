@@ -31,6 +31,15 @@ function App() {
         {
           path: "edit/:id",
           element: <ThemeEditor />,
+          loader: ({}) => {
+            return Promise.resolve({
+              primaryColor: "#0000ff",
+              secondaryColor: "#0088ff",
+              errorColor: "#ff0000",
+              warningColor: "#ff8800",
+            });
+          },
+          action: () => {},
         },
       ],
     },
@@ -41,7 +50,7 @@ function App() {
   ]);
 
   return (
-    <RouterProvider router={router} />
+    <RouterProvider fallbackElement={"loading"} router={router} />
   );
 }
 
