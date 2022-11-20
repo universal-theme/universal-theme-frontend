@@ -1,6 +1,7 @@
 import { Form } from "react-router-dom"
-import { Input, FormControl, FormLabel, Paper, TextField, InputAdornment, Button } from "@mui/material";
+import { Paper, TextField, InputAdornment, Button } from "@mui/material";
 import styles from "./theme-editor.module.css";
+import { ColorInput } from "../../common";
 
 export const ThemeEditor = () => {
     return <Paper sx={{display: "flex", "flex-direction": "column", padding: "1rem"}}>
@@ -10,25 +11,13 @@ export const ThemeEditor = () => {
             </FormSection>
 
             <FormSection header="Colors">
-                <FormControl fullwidth>
-                    <FormLabel>Primary color</FormLabel>
-                    <Input type="color" />
-                </FormControl>
+                <ColorInput label="Primary color" />
 
-                <FormControl fullwidth>
-                    <FormLabel>Secondary color</FormLabel>
-                    <Input type="color" />
-                </FormControl>
+                <ColorInput label="Secondary color" />
 
-                <FormControl fullwidth>
-                    <FormLabel>Error color</FormLabel>
-                    <Input type="color" defaultValue="#ff0000" />
-                </FormControl>
+                <ColorInput label="Error color" defaultValue="#ff0000" />
 
-                <FormControl fullwidth>
-                    <FormLabel>Warning color</FormLabel>
-                    <Input type="color" defaultValue="#ff8800" />
-                </FormControl>
+                <ColorInput label="Warning color" defaultValue="#ff8800" />
             </FormSection>
 
             <FormSection header="Font">
@@ -47,6 +36,6 @@ export const ThemeEditor = () => {
 const FormSection = ({ header, children }) => {
     return <div>
         <h2>{header}</h2>
-        {children}
+            {children}
     </div>
 }
